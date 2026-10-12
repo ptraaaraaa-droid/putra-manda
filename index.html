@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffe5ef" />
+  <title>Untuk Kamu, Sayang 💗</title>
+  <style>
+    :root { --pink:#ff77a8; --deep:#d94e85; --soft:#fff2f7; --ink:#63384d; --cream:#fffafc; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; color:var(--ink); font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+      background:linear-gradient(180deg,#fff4f8 0%,#ffe4ee 48%,#fff8fb 100%); overflow-x:hidden;
+    }
+    .wrap { width:min(92%,720px); margin:auto; }
+    .hero { min-height:100svh; display:grid; place-items:center; text-align:center; padding:48px 0 36px; position:relative; }
+    .pill { display:inline-block; background:#fff; border:1px solid #ffd0e1; border-radius:999px; padding:9px 15px; font-size:.82rem; box-shadow:0 8px 24px #d94e8514; }
+    h1 { font-size:clamp(2.5rem,10vw,5rem); line-height:1.02; margin:20px 0 14px; letter-spacing:-.05em; }
+    h1 span { color:var(--deep); }
+    .lead { max-width:460px; margin:0 auto 24px; line-height:1.8; font-size:1.03rem; }
+    .btn { appearance:none; border:0; border-radius:999px; padding:13px 20px; font:inherit; font-weight:800; cursor:pointer; transition:transform .2s,box-shadow .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .primary { background:var(--pink); color:white; box-shadow:0 10px 25px #d94e8538; }
+    .secondary { background:white; color:var(--deep); border:1px solid #ffd0e1; }
+    .hero-heart { font-size:clamp(4rem,20vw,7rem); display:block; filter:drop-shadow(0 12px 14px #e65d9233); animation:beat 1.7s infinite; }
+    @keyframes beat { 0%,100%{transform:scale(1)} 10%,30%{transform:scale(1.08)} 20%,40%{transform:scale(1)} }
+    .float { position:absolute; pointer-events:none; opacity:.65; animation:drift 7s ease-in-out infinite; }
+    .f1 { top:12%; left:8%; font-size:2rem; } .f2 { top:22%; right:9%; font-size:1.5rem; animation-delay:-2s; }
+    .f3 { bottom:15%; left:12%; font-size:1.3rem; animation-delay:-4s; } .f4 { bottom:20%; right:12%; font-size:2rem; animation-delay:-1s; }
+    @keyframes drift { 50%{transform:translateY(-18px) rotate(8deg)} }
+    section { padding:56px 0; }
+    .card { background:#ffffffd9; border:1px solid #ffdae7; border-radius:28px; padding:clamp(22px,6vw,38px); box-shadow:0 18px 50px #a83b6610; }
+    .eyebrow { color:var(--deep); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; font-weight:900; }
+    h2 { font-size:clamp(1.8rem,7vw,2.7rem); letter-spacing:-.04em; margin:9px 0 15px; }
+    p { line-height:1.85; }
+    .letter { font-size:1.02rem; white-space:pre-line; }
+    .music-row { display:flex; align-items:center; gap:15px; text-align:left; flex-wrap:wrap; }
+    .disc { width:66px; height:66px; flex:0 0 66px; border-radius:50%; display:grid; place-items:center; color:white; font-size:1.7rem; background:conic-gradient(#ffb4cf,#e86b9b,#ffb4cf,#e86b9b); box-shadow:inset 0 0 0 7px #ffffff45; }
+    .music-info { flex:1; min-width:150px; }
+    .music-info strong { display:block; font-size:1.05rem; }
+    .music-info small { color:#9b6b80; }
+    .music-controls { display:flex; gap:9px; margin-top:18px; }
+    .notice { color:#956c7d; font-size:.85rem; }
+    .surprise { text-align:center; }
+    .hidden-message { display:none; margin-top:20px; padding:18px; background:#fff2f7; border-radius:20px; animation:appear .5s ease both; }
+    .hidden-message.show { display:block; }
+    @keyframes appear { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    footer { text-align:center; padding:30px 0 45px; color:#a27488; font-size:.85rem; }
+    .sparkle { color:var(--deep); }
+    .hearts-layer { position:fixed; inset:0; pointer-events:none; z-index:10; overflow:hidden; }
+    .particle { position:absolute; bottom:-30px; animation:rise 4s linear forwards; }
+    @keyframes rise { to { transform:translateY(-110vh) rotate(25deg); opacity:0; } }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms !important; scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="hearts-layer" id="heartsLayer" aria-hidden="true"></div>
+  <header class="hero">
+    <span class="float f1">♡</span><span class="float f2">✧</span><span class="float f3">୨୧</span><span class="float f4">♡</span>
+    <div class="wrap">
+      <span class="pill">♡ halaman kecil khusus untukmu ♡</span>
+      <span class="hero-heart" aria-hidden="true">💗</span>
+      <h1>Hai, <span id="heroName">Sayang</span>!</h1>
+      <p class="lead">Aku bikin sesuatu yang sederhana, tapi semoga bisa bikin kamu senyum hari ini. Karena kamu punya tempat spesial di hatiku. 🌷</p>
+      <button class="btn primary" onclick="document.querySelector('#surat').scrollIntoView({behavior:'smooth'})">Buka surat kecilku 💌</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="surat">
+      <div class="card">
+        <div class="eyebrow">♡ sedikit dari hatiku</div>
+        <h2>Untuk kamu, <span class="sparkle" id="letterName">Sayang</span></h2>
+        <div class="letter" id="letterText">Hai, sayangku. 💗
+
+Makasih ya, sudah hadir dan membuat hari-hariku terasa lebih berwarna. Aku mungkin nggak selalu pandai merangkai kata, tapi aku ingin kamu tahu kalau kamu itu berharga dan pantas mendapatkan banyak hal baik.
+
+Semoga saat kamu membaca ini, kamu ingat bahwa ada seseorang yang selalu berharap kamu bahagia, bangga sama dirimu sendiri, dan tetap jadi kamu yang istimewa.
+
+Kalau hari ini terasa berat, pelan-pelan aja, ya. Kamu nggak harus selalu kuat setiap waktu. Jangan lupa istirahat dan sayangi dirimu sendiri.
+
+Dengan banyak rasa sayang,
+<span id="fromName">Dari aku 💗</span></div>
+      </div>
+    </section>
+
+    <section id="musik">
+      <div class="card">
+        <div class="eyebrow">♪ soundtrack kecil kita</div>
+        <h2>Satu lagu untukmu</h2>
+        <div class="music-row">
+          <div class="disc" aria-hidden="true">♫</div>
+          <div class="music-info">
+            <strong id="songTitle">Lagu favorit kita</strong>
+            <small id="songArtist">Ganti dengan lagu pilihanmu</small>
+          </div>
+        </div>
+        <div class="music-controls">
+          <button class="btn primary" id="playBtn" onclick="toggleMusic()">▶ Putar musik</button>
+          <button class="btn secondary" onclick="showMusicTip()">♪ Atur lagu</button>
+        </div>
+        <p class="notice" id="musicNotice">Tambahkan file musik milikmu ke folder yang sama, lalu isi nama file di bagian pengaturan pada kode.</p>
+        <audio id="musicPlayer" preload="none" loop>
+          <!-- Contoh: <source src="lagu.mp3" type="audio/mpeg"> -->
+        </audio>
+      </div>
+    </section>
+
+    <section>
+      <div class="card surprise">
+        <div class="eyebrow">psst... ada kejutan</div>
+        <h2>Ketuk kalau kamu siap ✨</h2>
+        <p>Ada satu pesan kecil yang sengaja aku sembunyikan buat kamu.</p>
+        <button class="btn primary" onclick="revealSurprise()">Buka kejutan 💝</button>
+        <div class="hidden-message" id="surpriseMessage">
+          <div style="font-size:2.4rem">🌷💗🌷</div>
+          <p><strong>Kalau aku boleh memilih lagi, aku tetap ingin mengenal kamu.</strong><br>Terima kasih sudah menjadi bagian manis dari ceritaku. Jangan lupa senyum hari ini, ya!</p>
+        </div>
+      </div>
+    </section>
+    <footer>Dibuat dengan <span class="sparkle">♥</span> dan sedikit rasa malu-malu · khusus untuk <span id="footerName">Sayang</span></footer>
+  </main>
+
+  <script>
+    // ✨ UBAH BAGIAN INI SESUAI KALIAN ✨
+    const CONFIG = {
+      namaPacar: "Sayang",
+      namaKamu: "Aku",
+      judulLagu: "Lagu favorit kita",
+      artisLagu: "Untuk seseorang yang spesial",
+      fileMusik: "" // contoh: "lagu.mp3" — taruh file itu di folder yang sama
+    };
+
+    document.title = `Untuk ${CONFIG.namaPacar} 💗`;
+    document.getElementById("heroName").textContent = CONFIG.namaPacar;
+    document.getElementById("letterName").textContent = CONFIG.namaPacar;
+    document.getElementById("fromName").textContent = `Dari ${CONFIG.namaKamu} 💗`;
+    document.getElementById("footerName").textContent = CONFIG.namaPacar;
+    document.getElementById("songTitle").textContent = CONFIG.judulLagu;
+    document.getElementById("songArtist").textContent = CONFIG.artisLagu;
+
+    const player = document.getElementById("musicPlayer");
+    const playBtn = document.getElementById("playBtn");
+    if (CONFIG.fileMusik) {
+      const source = document.createElement("source");
+      source.src = CONFIG.fileMusik;
+      source.type = CONFIG.fileMusik.toLowerCase().endsWith(".ogg") ? "audio/ogg" : "audio/mpeg";
+      player.appendChild(source);
+      document.getElementById("musicNotice").textContent = "Tekan tombol putar untuk mendengarkan lagu. Musik mulai setelah kamu menekan tombol.";
+    }
+    async function toggleMusic() {
+      if (!CONFIG.fileMusik) {
+        document.getElementById("musicNotice").textContent = "Belum ada file musik. Isi CONFIG.fileMusik di kode dengan nama file audio yang kamu punya.";
+        return;
+      }
+      if (player.paused) {
+        try { await player.play(); playBtn.textContent = "❚❚ Jeda musik"; }
+        catch { document.getElementById("musicNotice").textContent = "Musik belum bisa diputar. Pastikan file musik benar dan berada di folder yang sama."; }
+      } else {
+        player.pause(); playBtn.textContent = "▶ Putar musik";
+      }
+    }
+    function showMusicTip() {
+      document.getElementById("musicNotice").textContent = "Pilih audio yang kamu punya hak untuk digunakan, simpan sebagai lagu.mp3 di folder website, lalu ubah fileMusik menjadi \"lagu.mp3\".";
+    }
+    function revealSurprise() {
+      document.getElementById("surpriseMessage").classList.add("show");
+      for (let i=0;i<18;i++) {
+        setTimeout(() => {
+          const el = document.createElement("span");
+          el.className = "particle";
+          el.textContent = ["💗","💕","♡","✨","🌸"][Math.floor(Math.random()*5)];
+          el.style.left = Math.random()*100 + "%";
+          el.style.fontSize = (16 + Math.random()*18) + "px";
+          document.getElementById("heartsLayer").appendChild(el);
+          setTimeout(() => el.remove(), 4200);
+        }, i*90);
+      }
+    }
+  </script>
+</body>
+</html>
