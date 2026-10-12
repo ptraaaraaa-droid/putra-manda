@@ -35,13 +35,6 @@
     h2 { font-size:clamp(1.8rem,7vw,2.7rem); letter-spacing:-.04em; margin:9px 0 15px; }
     p { line-height:1.85; }
     .letter { font-size:1.02rem; white-space:pre-line; }
-    .music-row { display:flex; align-items:center; gap:15px; text-align:left; flex-wrap:wrap; }
-    .disc { width:66px; height:66px; flex:0 0 66px; border-radius:50%; display:grid; place-items:center; color:white; font-size:1.7rem; background:conic-gradient(#ffb4cf,#e86b9b,#ffb4cf,#e86b9b); box-shadow:inset 0 0 0 7px #ffffff45; }
-    .music-info { flex:1; min-width:150px; }
-    .music-info strong { display:block; font-size:1.05rem; }
-    .music-info small { color:#9b6b80; }
-    .music-controls { display:flex; gap:9px; margin-top:18px; }
-    .notice { color:#956c7d; font-size:.85rem; }
     .surprise { text-align:center; }
     .hidden-message { display:none; margin-top:20px; padding:18px; background:#fff2f7; border-radius:20px; animation:appear .5s ease both; }
     .hidden-message.show { display:block; }
@@ -85,27 +78,6 @@ Dengan banyak rasa sayang,
       </div>
     </section>
 
-    <section id="musik">
-      <div class="card">
-        <div class="eyebrow">♪ soundtrack kecil kita</div>
-        <h2>Satu lagu untukmu</h2>
-        <div class="music-row">
-          <div class="disc" aria-hidden="true">♫</div>
-          <div class="music-info">
-            <strong id="songTitle">Lagu favorit kita</strong>
-            <small id="songArtist">Ganti dengan lagu pilihanmu</small>
-          </div>
-        </div>
-        <div class="music-controls">
-          <button class="btn primary" id="playBtn" onclick="toggleMusic()">▶ Putar musik</button>
-          <button class="btn secondary" onclick="showMusicTip()">♪ Atur lagu</button>
-        </div>
-        <p class="notice" id="musicNotice">Tambahkan file musik milikmu ke folder yang sama, lalu isi nama file di bagian pengaturan pada kode.</p>
-        <audio id="musicPlayer" preload="none" loop>
-          <!-- Contoh: <source src="lagu.mp3" type="audio/mpeg"> -->
-        </audio>
-      </div>
-    </section>
 
     <section>
       <div class="card surprise">
@@ -126,10 +98,7 @@ Dengan banyak rasa sayang,
     // ✨ UBAH BAGIAN INI SESUAI KALIAN ✨
     const CONFIG = {
       namaPacar: "Manda",
-      namaKamu: "Putra",
-      judulLagu: "Sempurna",
-      artisLagu: "Andra & The Backbone",
-      fileMusik: "" // contoh: "lagu.mp3" — taruh file itu di folder yang sama
+      namaKamu: "Putra"
     };
 
     document.title = `Untuk ${CONFIG.namaPacar} 💗`;
@@ -137,33 +106,6 @@ Dengan banyak rasa sayang,
     document.getElementById("letterName").textContent = CONFIG.namaPacar;
     document.getElementById("fromName").textContent = `Dari ${CONFIG.namaKamu} 💗`;
     document.getElementById("footerName").textContent = CONFIG.namaPacar;
-    document.getElementById("songTitle").textContent = CONFIG.judulLagu;
-    document.getElementById("songArtist").textContent = CONFIG.artisLagu;
-
-    const player = document.getElementById("musicPlayer");
-    const playBtn = document.getElementById("playBtn");
-    if (CONFIG.fileMusik) {
-      const source = document.createElement("source");
-      source.src = CONFIG.fileMusik;
-      source.type = CONFIG.fileMusik.toLowerCase().endsWith(".ogg") ? "audio/ogg" : "audio/mpeg";
-      player.appendChild(source);
-      document.getElementById("musicNotice").textContent = "Tekan tombol putar untuk mendengarkan lagu. Musik mulai setelah kamu menekan tombol.";
-    }
-    async function toggleMusic() {
-      if (!CONFIG.fileMusik) {
-        document.getElementById("musicNotice").textContent = "Belum ada file musik. Isi CONFIG.fileMusik di kode dengan nama file audio yang kamu punya.";
-        return;
-      }
-      if (player.paused) {
-        try { await player.play(); playBtn.textContent = "❚❚ Jeda musik"; }
-        catch { document.getElementById("musicNotice").textContent = "Musik belum bisa diputar. Pastikan file musik benar dan berada di folder yang sama."; }
-      } else {
-        player.pause(); playBtn.textContent = "▶ Putar musik";
-      }
-    }
-    function showMusicTip() {
-      document.getElementById("musicNotice").textContent = "Pilih audio yang kamu punya hak untuk digunakan, simpan sebagai lagu.mp3 di folder website, lalu ubah fileMusik menjadi \"lagu.mp3\".";
-    }
     function revealSurprise() {
       document.getElementById("surpriseMessage").classList.add("show");
       for (let i=0;i<18;i++) {
